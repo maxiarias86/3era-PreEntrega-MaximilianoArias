@@ -1,0 +1,23 @@
+{% extends "AppEco/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1 class="mb-5">Búsqueda de Pacientes</h1>
+
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{{ mensaje }}
+
+<form action="{% url 'buscar' %}" method="GET">
+
+    <input type="number" name="DNI" id="DNI" placeholder="Inserte DNI del paciente">
+
+    <input type="submit" value="Buscar">
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "AppEco/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1 class="mb-5">Ecografías</h1>
+
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<h1> Desea crear una ecografía o buscar los estudios de su paciente?</h1>
+<h2>{{ mensaje }}</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <a class="btn btn-secondary" href="{% url 'ecografiaFormulario' %}">NUEVO</a>
+    <a class="btn btn-secondary" href="{% url 'busquedaEcografia' %}">BUSCAR</a>         
+</form>
+
+
+{% endblock %}

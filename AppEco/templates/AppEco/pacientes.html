@@ -1,0 +1,66 @@
+{% extends "AppEco/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1 class="mb-5">Pacientes</h1>
+
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<h1> Listado de Pacientes</h1>
+<h2>{{ mensaje }}</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ miFormulario.as_table }} <!-- form.as_p / form.as_ul / form -->
+    </table>
+    <a class="btn btn-secondary" href="{% url 'pacienteFormulario' %}">NUEVO</a>
+    <a class="btn btn-secondary" href="{% url 'busquedaPaciente' %}">BUSCAR</a>         
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Fecha de nacimiento</th>
+            <th>Sexo</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for paciente in pacientes %}
+        <tr>
+            
+            <td>
+                {{ paciente.id }}
+            </td>
+            <td>
+                {{ paciente.DNI }}
+            </td>
+            <td>
+                {{ paciente.nombre }}
+            </td>
+            <td>
+                {{ paciente.apellido }}
+            </td>
+            <td>
+                {{ paciente.mail }}
+            </td>
+            <td>
+                {{ paciente.fecha_nacimiento }}
+            </td>
+            <td>
+                {{ paciente.sexo }}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

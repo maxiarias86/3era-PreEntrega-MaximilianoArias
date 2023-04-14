@@ -1,0 +1,28 @@
+{% extends "AppEco/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1 class="mb-5">Búsqueda de Ecografías</h1>
+
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% if pacientes %}
+
+<h2>ECOGRAFIAS</h2>
+{% for paciente in pacientes %}
+
+<h3>El {{ paciente.fecha_estudio }} el feto presentó un peso estimado de {{ paciente.PFE }}</h3>
+
+{% endfor %}
+
+{% else %}
+
+<h2>NO SE HAN ENCONTRADO ECOGRAFIAS</h2>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "AppEco/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1 class="mb-5">Búsqueda de Médicos</h1>
+
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{{ mensaje }}
+
+<form action="{% url 'buscarMedico' %}" method="GET">
+
+    <input type="number" name="MN" id="MN" placeholder="Inserte MN del médico">
+
+    <input type="submit" value="Buscar">
+
+</form>
+
+{% endblock %}

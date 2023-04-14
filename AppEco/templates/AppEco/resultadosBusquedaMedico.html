@@ -1,0 +1,28 @@
+{% extends "AppEco/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1 class="mb-5">Búsqueda de Médicos</h1>
+
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% if medicos %}
+
+<h2>MEDICOS</h2>
+{% for medico in medicos %}
+
+<h3>{{ medico.apellido }}, {{ medico.nombre }}</h3>
+
+{% endfor %}
+
+{% else %}
+
+<h2>NO SE HAN ENCONTRADO MEDICOS CON DICHA MN</h2>
+
+{% endif %}
+
+{% endblock %}
